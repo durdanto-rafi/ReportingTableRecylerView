@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="1">
+
+            <com.mancj.materialsearchbar.MaterialSearchBar
+                android:id="@+id/sbRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:hint="@string/search_hint"
+                app:maxSuggestionsCount="10"
+                app:speechMode="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:stretchColumns="1"
+                xmlns:android="http://schemas.android.com/apk/res/android">
+                <TableRow
+                    android:id="@+id/trData"
+                    android:weightSum="1.5"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="Title"
+                        android:layout_weight=".5"
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:id="@+id/tvTitle" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="Ingredients"
+                        android:layout_weight=".5"
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:id="@+id/tvIngredients" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:text="Number"
+                        android:gravity="center"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:id="@+id/tvNumber" />
+                </TableRow>
+            </TableLayout>
+
+            <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/sfRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            </android.support.v4.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
